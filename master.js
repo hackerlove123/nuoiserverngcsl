@@ -50,7 +50,7 @@ app.listen(CONG,async()=>{
       if(LA_MASTER){
         bot.setWebHook(`${urlTunnel}/bot${TOKEN}`);
         guiTin(ID_NHOM,`👑 *Master khởi động*\n*Máy chủ:* ${TEN_MAY}\n*Port:* ${CONG}\n*URL:* ${urlTunnel}\n\n\`\`\`\n${ketQua}\n\`\`\``);
-        guiTin(ID_NHOM,`💡 *Chạy slave:*\n\`\`\`\nMASTER_URL=${urlTunnel} node bot.js\n\`\`\``);
+        guiTin(ID_NHOM,`💡 *Chạy slave:*\n\`\`\`\nMASTER_URL=${urlTunnel} node slave.js\n\`\`\``);
       }else if(URL_MASTER){
         guiRequest({hostname:new URL(URL_MASTER).hostname,path:'/register',method:'POST',headers:{'Content-Type':'application/json'}},JSON.stringify({port:CONG,url:urlTunnel,hostname:TEN_MAY,report:ketQua}),()=>{});
         setInterval(()=>guiRequest({hostname:new URL(URL_MASTER).hostname,path:'/ping',method:'POST',headers:{'Content-Type':'application/json'}},JSON.stringify({url:urlTunnel}),()=>{}),3000);
